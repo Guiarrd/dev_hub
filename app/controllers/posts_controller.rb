@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = current_user
     @post = Post.new
     posts = current_user.posts.map { |post| post }
     #injeta na variável 'posts' todos os posts dos users que o user logado está seguindo
