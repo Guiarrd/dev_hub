@@ -46,15 +46,15 @@
             </div>
 
             <ul id="dropdown1" class="dropdown-content">
-              <li><%= link_to 'Profile', user_path(current_user) %></li>
+              <li><%= link_to 'Perfil', user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to 'Config', edit_user_registration_path(current_user) %></li>
+              <li><%= link_to 'Alterar Dados', edit_user_registration_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
+              <li><%= link_to('Desconectar', destroy_user_session_path, :method => :delete) %></li>
             </ul>
           <% else %>
-            <li><a href="/users/sign_in">Login</a></li>
-            <li><a href="/users/sign_up">Register</a></li>
+            <li><a href="/users/sign_in">Entrar</a></li>
+            <li><a href="/users/sign_up">Registrar-se</a></li>
           <% end %>
         <ul>
       </div>
@@ -66,18 +66,18 @@
   <% if current_user %>
     <li class="search-field">
       <%= search_form_for @q, url: search_path do |f| %>
-        <%= f.search_field :name_cont, placeholder: "Search..." %>
+        <%= f.search_field :name_cont, placeholder: "Buscar pessoas..." %>
       <% end %>
     </li>
-    <li><%= link_to 'Feed', posts_path %></li>
-    <li><%= link_to 'Profile', user_path(current_user) %></li>
-    <li><%= link_to 'Config', edit_user_registration_path(current_user) %></li>
+    <li><%= link_to 'Feed de Notícias', posts_path %></li>
+    <li><%= link_to 'Perfil', user_path(current_user) %></li>
+    <li><%= link_to 'Alterar Dados', edit_user_registration_path(current_user) %></li>
     <li class="divider"></li>
-    <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
+    <li><%= link_to('Desconectar', destroy_user_session_path, :method => :delete) %></li>
   <% else %>
-    <li><a href="/users/sign_in">Login</a></li>
+    <li><a href="/users/sign_in">Entrar</a></li>
     <li class="divider"></li>
-    <li><a href="/users/sign_up">Regster</a></li>
+    <li><a href="/users/sign_up">Registrar-se</a></li>
     <li class="divider"></li>
   <% end %>
 </ul>

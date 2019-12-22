@@ -26,19 +26,19 @@ $(document).on "turbolinks:load", ->
       finish_posts = false
 
   $('body').on 'ajax:success', '#new_post', (e, data, status, xhr) ->
-    M.toast({html: 'Post created', displayLength: 4000, classes: 'green rounded'})
+    M.toast({html: 'Post criado', displayLength: 4000, classes: 'green rounded'})
     $('#post_body').val('')
     count = parseInt($('#post_count').find('a').html())
     $('#post_count').find('a').html(count + 1)
 
   $('body').on 'ajax:error', '#new_post', (e, data, status, xhr) ->
-    M.toast({html: 'Problem in post creation', displayLength: 4000, classes: 'red rounded'})
+    M.toast({html: 'Falha ao criar o Post', displayLength: 4000, classes: 'red rounded'})
 
   $('body').on 'ajax:success', '.delete_post', (e, data, status, xhr) ->
-    M.toast({html: 'Post removed', displayLength: 4000, classes: 'green rounded'})
+    M.toast({html: 'Post excluído', displayLength: 4000, classes: 'green rounded'})
     $('#post_' + e.target.id).remove()
     count = parseInt($('#post_count').find('a').html())
     $('#post_count').find('a').html(count - 1)
 
   $('body').on 'ajax:error', '.delete_post', (e, data, status, xhr) ->
-    M.toast({html: 'Problem in post delete', displayLength: 4000, classes: 'red rounded'})
+    M.toast({html: 'Falha ao excluir o Post', displayLength: 4000, classes: 'red rounded'})

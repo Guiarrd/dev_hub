@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   private
 
     def record_not_found
-      flash[:alert] = "Record not Found"
+      flash[:alert] = "Registro não encontrado"
       redirect_to root_url
     end
 
