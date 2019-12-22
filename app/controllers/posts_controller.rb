@@ -8,7 +8,13 @@ class PostsController < ApplicationController
     posts = current_user.posts.map { |post| post }
     #injeta na variável 'posts' todos os posts dos users que o user logado está seguindo
     current_user.all_following.each { |user| user.posts.each { |post| posts << post } }
-    @posts = posts.sort_by &:created_at
+    @posts = (posts.sort_by! { |post| post.created_at }).reverse
+    @posts = @posts.paginate(:page => (params[:page] || 1), :per_page => 5)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
