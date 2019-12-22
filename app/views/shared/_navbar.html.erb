@@ -1,5 +1,5 @@
 <div class="navbar-fixed">
-  <nav class="top-nav">
+  <nav>
     <div class="nav-wrapper col s12">
       <div class="container">
         <% if current_user %>
@@ -18,7 +18,7 @@
           </a>
         <% end %>
 
-        <a href="#" data-activates="side-bar" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="side-bar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
           <% if current_user %>
@@ -26,14 +26,20 @@
               <div class="col m7 offset-m3">
                 <li class="search-field">
                   <%= search_form_for @q, url: search_path do |f| %>
-                    <%= f.search_field :name_cont, placeholder: "Search..." %>
+                    <div class="input-field">
+                      <%= f.search_field :name_cont, id: "search" %>
+                      <%= f.label :name_cont, class: "label-icon" do %>
+                        <i class="material-icons">search</i>
+                      <% end %>
+                      <i class="material-icons">close</i>
+                    </div>
                   <% end %>
                 </li>
               </div>
               <div class="col m2">
                 <li>
-                  <a class="dropdown-button" href="#!" data-activates="dropdown1">
-                    <img src="<%= current_user.avatar.thumb.url %>%" alt="" class="responsive-img circle nav-image">
+                  <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+                    <img src="<%= current_user.avatar.thumb.url %>" alt="" class="responsive-img circle nav-image">
                   </a>
                 </li>
               </div>
@@ -56,7 +62,7 @@
   </nav>
 </div>
 
-<ul class="side-nav" id="side-bar">
+<ul class="sidenav" id="side-bar">
   <% if current_user %>
     <li class="search-field">
       <%= search_form_for @q, url: search_path do |f| %>
