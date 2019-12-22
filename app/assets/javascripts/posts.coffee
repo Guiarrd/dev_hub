@@ -24,3 +24,12 @@ $(document).on "turbolinks:load", ->
       reload(1)
       next_page = 2
       finish_posts = false
+
+  $('body').on 'ajax:success', '#new_post', (e, data, status, xhr) ->
+    M.toast({html: 'Post created', displayLength: 4000, classes: 'green rounded'})
+    $('#post_body').val('')
+    count = parseInt($('#post_count').find('a').html())
+    $('#post_count').find('a').html(count + 1)
+
+  $('body').on 'ajax:error', '#new_post', (e, data, status, xhr) ->
+    M.toast({html: 'Problem in post creation', displayLength: 4000, classes: 'red rounded'})
