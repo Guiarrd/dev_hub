@@ -21,7 +21,7 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'cancancan'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'ransack'
 gem 'will_paginate', '~> 3.1.0'
 
